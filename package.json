@@ -1,0 +1,36 @@
+{
+  "name": "even-epub-flash-reader",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "pretest:e2e": "npm run build",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts",
+    "verify:upload": "npm install && npm test && npm run test:e2e && npm run build",
+    "pack": "evenhub pack app.json dist -o lineflash-reader.ehpk",
+    "pack:check": "evenhub pack app.json dist -o lineflash-reader.ehpk -c",
+    "dev:host": "vite --host 0.0.0.0",
+    "qr": "evenhub qr"
+  },
+  "devDependencies": {
+    "@evenrealities/evenhub-cli": "^0.1.13",
+    "@evenrealities/evenhub-simulator": "^0.7.3",
+    "@types/pngjs": "^6.0.5",
+    "jsdom": "^29.1.1",
+    "playwright": "^1.59.1",
+    "pngjs": "^7.0.0",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.10",
+    "vitest": "^4.1.5"
+  },
+  "dependencies": {
+    "@evenrealities/even_hub_sdk": "^0.0.10",
+    "fflate": "^0.8.2",
+    "idb": "^8.0.3",
+    "tiny-segmenter": "^0.2.0"
+  }
+}
